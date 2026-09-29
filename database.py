@@ -130,24 +130,22 @@ def save_run(
     pass_count = sum(
         1
         for record in records
-        if record.get("expected_outcome") == "PASS"
+        if record.get("outcome") == "PASS"
     )
 
     flag_count = sum(
         1
         for record in records
-        if record.get("expected_outcome") == "FLAG"
+        if record.get("outcome") == "FLAG"
     )
 
     block_count = sum(
         1
         for record in records
-        if record.get("expected_outcome") == "BLOCK"
+        if record.get("outcome") == "BLOCK"
     )
 
-    run_date = datetime.now().isoformat(
-        timespec="seconds"
-    )
+    run_date = datetime.now().isoformat(timespec="seconds")
 
     # Insert run
     cursor.execute("""
@@ -181,27 +179,12 @@ def save_run(
         record_data = dict(record)
 
         # Remove evaluation metadata from raw record data
-        record_data.pop(
-            "expected_outcome",
-            None
-        )
+        record_data.pop("outcome", None)
+        record_data.pop("triggered_rules", None)
+        record_data.pop("reason", None)
+        record_data.pop("remediation", None)
 
-        record_data.pop(
-            "expected_rule_triggers",
-            None
-        )
-
-        record_data.pop(
-            "expected_reason",
-            None
-        )
-
-        record_data.pop(
-            "suggested_remediation",
-            None
-        )
-
-        # Convert NaN to None before storing JSON
+        # Convert NaN to None
         record_data = clean_record(record_data)
 
         cursor.execute("""
@@ -223,22 +206,14 @@ def save_run(
                 default=str,
                 ensure_ascii=False
             ),
-            record.get(
-                "expected_outcome",
-                "PASS"
+            record.get("outcome", "PASS"),
+            json.dumps(
+                record.get("triggered_rules", []),
+                default=str,
+                ensure_ascii=False
             ),
-            record.get(
-                "expected_rule_triggers",
-                ""
-            ),
-            record.get(
-                "expected_reason",
-                ""
-            ),
-            record.get(
-                "suggested_remediation",
-                ""
-            )
+            record.get("reason", ""),
+            record.get("remediation", "")
         ))
 
     conn.commit()

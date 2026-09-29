@@ -1,0 +1,269 @@
+[
+  {
+    "rule_id": "PII-01",
+    "category": "PII",
+    "description": "Direct identifiers",
+    "trigger_fields": [
+      "first_name",
+      "last_name",
+      "full_name",
+      "customer_name"
+    ],
+    "condition_type": "ANY",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "PII-02",
+    "category": "PII",
+    "description": "Personal email address",
+    "trigger_fields": [
+      "email",
+      "personal_email",
+      "contact_email"
+    ],
+    "condition_type": "ANY",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "PII-03",
+    "category": "PII",
+    "description": "Phone or mobile number",
+    "trigger_fields": [
+      "mobile",
+      "telephone",
+      "phone_number"
+    ],
+    "condition_type": "ANY",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "PII-04",
+    "category": "PII",
+    "description": "Postal or home address",
+    "trigger_fields": [
+      "address",
+      "home_address",
+      "street",
+      "postcode"
+    ],
+    "condition_type": "ANY",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "PII-05",
+    "category": "PII",
+    "description": "National Insurance number",
+    "trigger_fields": [
+      "ni_number",
+      "nino"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "PII-06",
+    "category": "PII",
+    "description": "Passport number",
+    "trigger_fields": [
+      "passport_number"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "PII-07",
+    "category": "PII",
+    "description": "Driving licence number",
+    "trigger_fields": [
+      "driving_licence_number"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "PII-08",
+    "category": "PII",
+    "description": "Bank account or payment card number",
+    "trigger_fields": [
+      "bank_account",
+      "sort_code",
+      "credit_card_number"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "PII-09",
+    "category": "PII",
+    "description": "Online identifier where linkable to a person",
+    "trigger_fields": [
+      "IP address",
+      "device ID",
+      "cookie ID",
+      "user ID"
+    ],
+    "condition_type": "ANY",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "SPII-01",
+    "category": "SPII",
+    "description": "Health or medical information",
+    "trigger_fields": [
+      "medical_condition",
+      "diagnosis",
+      "treatment",
+      "disability"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "SPII-02",
+    "category": "SPII",
+    "description": "Ethnicity or racial origin",
+    "trigger_fields": [
+      "ethnicity",
+      "race",
+      "racial_origin"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "SPII-03",
+    "category": "SPII",
+    "description": "Religion or belief",
+    "trigger_fields": [
+      "religion",
+      "belief"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "SPII-04",
+    "category": "SPII",
+    "description": "Political opinion",
+    "trigger_fields": [
+      "political_view",
+      "party_preference"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "SPII-05",
+    "category": "SPII",
+    "description": "Trade union membership",
+    "trigger_fields": [
+      "union_member",
+      "trade_union"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "SPII-06",
+    "category": "SPII",
+    "description": "Biometric or genetic data",
+    "trigger_fields": [
+      "faceprint",
+      "fingerprint",
+      "iris_scan",
+      "DNA profile"
+    ],
+    "condition_type": "ANY",
+    "outcome": "BLOCK"
+  },
+  {
+    "rule_id": "CPII-01",
+    "category": "CPII",
+    "description": "Full name + date of birth",
+    "trigger_fields": [
+      "full name",
+      "date of birth"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-02",
+    "category": "CPII",
+    "description": "Full name + postal address or postcode",
+    "trigger_fields": [
+      "full name",
+      "postal address",
+      "postcode"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-03",
+    "category": "CPII",
+    "description": "Full name + phone number",
+    "trigger_fields": [
+      "full name",
+      "phone number"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-04",
+    "category": "CPII",
+    "description": "Full name + personal email address",
+    "trigger_fields": [
+      "full name",
+      "personal email address"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-05",
+    "category": "CPII",
+    "description": "Date of birth + postcode + gender",
+    "trigger_fields": [
+      "date of birth",
+      "postcode",
+      "gender"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-06",
+    "category": "CPII",
+    "description": "Employee ID + department + role where linkable to a person",
+    "trigger_fields": [
+      "Employee ID",
+      "department",
+      "role"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-07",
+    "category": "CPII",
+    "description": "Customer ID + account event details where the customer can be re-identified",
+    "trigger_fields": [
+      "Customer ID",
+      "account event details"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  },
+  {
+    "rule_id": "CPII-08",
+    "category": "CPII",
+    "description": "Free-text comments containing personal identifiers",
+    "trigger_fields": [
+      "free-text comments"
+    ],
+    "condition_type": "ALL",
+    "outcome": "FLAG"
+  }
+]

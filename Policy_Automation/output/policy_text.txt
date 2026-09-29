@@ -1,0 +1,43 @@
+--- PAGE 1 ---
+AI Training Data PII Policy — Rule Tables
+5.1 Direct identifiers
+Rule ID PII type Examples Required policy outcome
+PII-01 Full name first_name, last_name, full_name, Flag record
+customer_name
+PII-02 Personal email address email, personal_email, contact_email Flag record
+PII-03 Phone or mobile number mobile, telephone, phone_number Flag record
+PII-04 Postal or home address address, home_address, street, postcode with Flag record
+address
+PII-05 National Insurance ni_number, nino Block until removed or
+number approved
+PII-06 Passport number passport_number Block until removed or
+approved
+PII-07 Driving licence number driving_licence_number Block until removed or
+approved
+PII-08 Bank account or payment bank_account, sort_code, credit_card_number Block until removed or
+card number approved
+PII-09 Online identifier IP address, device ID, cookie ID, user ID where Flag record
+linkable to a person
+5.2 Sensitive personal data
+Rule ID Sensitive data type Examples Required policy
+outcome
+SPII-01 Health or medical information medical_condition, diagnosis, treatment, disability Block record
+information
+SPII-02 Ethnicity or racial origin ethnicity, race, racial_origin Block record
+SPII-03 Religion or belief religion, belief Block record
+SPII-04 Political opinion political_view, party_preference Block record
+SPII-05 Trade union membership union_member, trade_union Block record
+SPII-06 Biometric or genetic data faceprint, fingerprint, iris_scan, DNA profile Block record
+
+--- PAGE 2 ---
+5.3 Indirect identifiers and combination rules
+Rule ID Combination rule Required policy
+outcome
+CPII-01 Full name + date of birth Flag record
+CPII-02 Full name + postal address or postcode Flag record
+CPII-03 Full name + phone number Flag record
+CPII-04 Full name + personal email address Flag record
+CPII-05 Date of birth + postcode + gender Flag record
+CPII-06 Employee ID + department + role where linkable to a person Flag record
+CPII-07 Customer ID + account event details where the customer can be re-identified Flag record
+CPII-08 Free-text comments containing personal identifiers Flag record
