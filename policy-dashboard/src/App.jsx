@@ -6,7 +6,7 @@ import "./App.css";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const API_BASE =
-  import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8001";
+  import.meta.env.API_BASE_URL || "http://127.0.0.1:8001";
 
 function App() {
   const [df, setDf] = useState([]);
